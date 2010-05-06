@@ -1,0 +1,20 @@
+<grails>
+  <resources>
+    <resource>org.grails.appengine.AppEngineReloadController</resource>
+    <resource>YuiTagLib</resource>
+    <resource>BootStrap</resource>
+    <resource>BuildConfig</resource>
+    <resource>Config</resource>
+    <resource>DataSource</resource>
+    <resource>UrlMappings</resource>
+    <resource>mulan.CategoryController</resource>
+    <resource>mulan.TaskController</resource>
+    <resource>mulan.Category</resource>
+    <resource>mulan.Task</resource>
+  </resources>
+  <plugins>
+    <plugin>AppEngineGrailsPlugin</plugin>
+    <plugin>GormJpaGrailsPlugin</plugin>
+    <plugin>YuiGrailsPlugin</plugin>
+  </plugins>
+</grails>
