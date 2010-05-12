@@ -5,12 +5,12 @@ if (Ajax && (Ajax != null)) {
         if($('spinner') && Ajax.activeRequestCount>0)
           Effect.Appear('spinner',{duration:0.5,queue:'end'});
 	  },
-	  onComplete: function() {
+	  onComplete: function() { 
         if($('spinner') && Ajax.activeRequestCount==0)
           Effect.Fade('spinner',{duration:0.5,queue:'end'});
 	  }
 	});
-}
+}  
 var contains=function(oParentNode,oNode){
 	 
 	do{if(oParentNode==oNode){

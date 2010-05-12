@@ -43,14 +43,14 @@
 
 .content {
 	width: 750px;
-	height: 50px;
+	height: 40px;
 }
 
 .cat_list01 {
 	clear: both;
 	margin-top: 6px;
 	width: 500px;
-	height: 35px;
+	height: 30px;
 	overflow: hidden;
 }
 
@@ -97,13 +97,13 @@ ul.concernBox {
 
 ul.concernBox li {
 	overflow: hidden;
-	padding: 15px 0;
+	padding: 8px 0;
 	width: 90%;
 }
 
 ul.concernBox li.top {
 	overflow: hidden;
-	padding: 0 0 15px 0;
+	padding: 0 0 8px 0;
 }
 
 ul.concernBox li.cur {

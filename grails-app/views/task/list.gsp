@@ -3,7 +3,7 @@
 <%@ page import="com.google.appengine.api.datastore.KeyFactory.Builder"%>
 <html>
     <head>
-        <title>Welcome to Grails</title>
+        
 		<meta name="layout" content="main" />			
 		<style type="text/css" >
 
@@ -76,9 +76,9 @@
 					</ul>
 					<h1>任务状态</h1>
 					<ul>
-						<li><g:link controller="task" action="list" params="[status:'Open']">正在进行中</g:link><li>
-						<li><g:link controller="task" action="list" params="[status:'Cancel']">撤销</g:link><li>
-						<li><g:link controller="task" action="list" params="[status:'End']">已结束</g:link><li>
+						<li><g:link controller="task" action="list" params="[status:'Open']">正在进行中(${opens})</g:link><li>
+						<li><g:link controller="task" action="list" params="[status:'Cancel']">撤销(${cancels})</g:link><li>
+						<li><g:link controller="task" action="list" params="[status:'End']">已结束(${ends})</g:link><li>
 						
 					</ul>
 				</div>

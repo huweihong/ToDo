@@ -24,7 +24,10 @@ class TaskController {
 				return [ taskInstanceList: tasks, 
 				         taskInstanceTotal: Task.count(params),  
 				                          categoryInstanceList:Category.list([where:[author:user],sorts:"name",order:"desc"]),
-				                          categoryname:params.status+"的任务"]
+				                          categoryname:params.status+"的任务",
+				 				         opens:getNumbers("Open",user),
+								         cancels:getNumbers("Cancel",user),
+								         ends:getNumbers("End",user)]
 			}
 			if(params.id){
 				Builder keyBuilder = new Builder("Root", 1);
@@ -40,7 +43,10 @@ class TaskController {
 				                          taskInstanceTotal: tasks.size(),
 				                          cat:cat,
 				                          categoryInstanceList:Category.list([where:[author:user],sorts:"name",order:"desc"]),
-				                          categoryname:"属于"+cat.name+"的任务"]
+				                          categoryname:"属于"+cat.name+"的任务",
+				 				         opens:getNumbers("Open",user),
+								         cancels:getNumbers("Cancel",user),
+								         ends:getNumbers("End",user)]
 			
 			}else{
 				params.max = Math.min( params.max ? params.max.toInteger() : 5 ,  100)   				
@@ -48,16 +54,25 @@ class TaskController {
 				params.sorts=["beginDate"]  
 				params.order="desc"	
 				tasks=Task.list(params)
+				
 				return [ taskInstanceList: tasks, 
 				         taskInstanceTotal: Task.count(params),
-				         categoryInstanceList:Category.list([where:[author:user],sorts:"name",order:"desc"]),categoryname:"所有任务"]
+				         categoryInstanceList:Category.list([where:[author:user],sorts:"name",order:"desc"]),
+				         categoryname:"所有任务",
+				         opens:getNumbers("Open",user),
+				         cancels:getNumbers("Cancel",user),
+				         ends:getNumbers("End",user)]
 			}
 			
 		}else{ 
 			render(view:"/login",model:[login:UserUtil.getLogInUrl("/task/list")]) 
 		}
 	}
-	
+	public int getNumbers(String status,User user){
+		params.where=[author:user,status:status]
+		return Task.count(params)              
+		
+	}
 	def show = {
 		
 		if(user){
